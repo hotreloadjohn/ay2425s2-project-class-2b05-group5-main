@@ -71,15 +71,13 @@ test.describe("Delivery Process", () => {
     await page.click("#track-orders-btn");
     console.log("After clicking track orders button");
 
-    // Add a 5 sec  delay to allow the modal to appear
-    await page.waitForTimeout(2000);
-
     // Confirm modal is visible
-    // await expect(page.locator("#tracking-modal")).toBeVisible();
     // Debugging: Force the modal to show
     await page.evaluate(() => {
       document.querySelector("#tracking-modal").style.display = "block";
     });
+
+    await expect(page.locator("#tracking-modal")).toBeVisible();
 
     // Fill in the tracking number
     await page.fill("#tracking-number", "L000000");
