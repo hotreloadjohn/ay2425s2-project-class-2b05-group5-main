@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+</head>
+
+<body>
+    <!-- Navbar for Logged-in Users -->
+    <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="./index.html" class="nav-link active" id="product-link">Product</a></li>
+            <li><a href="./review/review.html" class="nav-link" id="review-link">Review</a></li>
+            <li><a href="./cart/cart.html" class="nav-link" id="cart-link">Cart</a></li>
+            <li><a href="./wishlist/wishlist.html" class="nav-link" id="wishlists-link">Wishlist</a></li>
+            <li><a href="./orderHistory/orderHistory.html" class="nav-link" id="orderHistory-link">Order History</a></li>
+            <li><a href="./applySupplier.html" class="nav-link" id="applysupplier-link">Apply Supplier</a></li>
+            <li><a href="./faq/faq.html" class="nav-link" id="faq-link">FAQ</a></li>
+            <li><a href="../coupons/userViewCoupons.html" class="nav-link" id="viewCoupon-link">View Available Coupons</a></li>
+            <li><a href="./profile/profile.html" class="nav-link" id="profile-link">Profile</a></li>
+            <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Navbar for Public Users -->
+    <nav class="navbar public-navbar" id="public-navbar">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="index.html" class="nav-link active" id="product-link">Product</a></li>
+            <li><a href="./login.html" class="nav-link" id="login-link">Login</a></li>
+            <li><a href="./register.html" class="nav-link" id="register-link">Register</a></li>
+        </ul>
+    </nav>
+
+    <!-- Product Search Section -->
+    <section class="search-section">
+        <h2>Find Your Product</h2>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search for products..." />
+            <button class="search-btn">Search</button>
+            <button class="filter-btn">Filter</button>
+        </div>
+    </section>
+
+    <!-- Filter Pop-up -->
+    <div class="filter-popup" id="filter-popup">
+        <div class="popup-header">
+            <button class="close-popup" id="close-popup">&times;</button>
+        </div>
+        <div class="popup-content">
+            <h3>Sort Products</h3>
+            <label><input type="radio" name="sort" value=1 /> Price: Low to High</label><br />
+            <label><input type="radio" name="sort" value=2 /> Price: High to Low</label>
+            <div class="popup-actions">
+                <button class="apply-filter">Apply</button>
+            </div>
+        </div>
+    </div>
+    <p id="search-result-count" style="display: none; margin-left: 60px; font-weight: bold;"></p>
+    <!-- Product Display Section -->
+    <section class="product-display-section">
+        <h2>Products</h2>
+        <div class="product-container" id="product-container"></div>
+    </section>
+</body>
+
+</html>

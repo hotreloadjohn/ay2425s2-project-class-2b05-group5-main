@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="login.css" />
+  <title>Login Page</title>
+
+</head>
+
+<body>
+  <!-- Navbar for Logged-in Users -->
+  <!-- <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+      <div class="logo">
+          <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+      </div>
+      <ul class="nav-items">
+          <li><a href="index.html" class="nav-link active" id="product-link">Product</a></li>
+          <li><a href="./cart/cart.html" class="nav-link" id="cart-link">Cart</a></li>
+          <li><a href="#" class="nav-link" id="delivery-status-link">Delivery Status</a></li>
+          <li><a href="#" class="nav-link" id="payment-link">Payment</a></li>
+          <li><a href="#" class="nav-link" id="profile-link">Profile</a></li>
+      </ul>
+  </nav> -->
+
+  <!-- Navbar for Public Users -->
+  <!-- <nav class="navbar public-navbar" id="public-navbar">
+      <div class="logo">
+          <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+      </div>
+      <ul class="nav-items">
+          <li><a href="index.html" class="nav-link active" id="product-link">Product</a></li>
+          <li><a href="./login.html" class="nav-link" id="login-link">Login</a></li>
+          <li><a href="./register.html" class="nav-link" id="register-link">Register</a></li>
+      </ul>
+  </nav> -->
+
+  <div class="shell">
+    <div class="container b-container" id="b-container">
+      <form id="loginForm">
+        <h2 class="form_title title">Login Account</h2>
+        <input type="email" id="email" class="form_input" placeholder="Email" required />
+        <input type="password" id="password" class="form_input" placeholder="Password" required />
+        <a class="form_link">Forgot password?</a>
+        <button type="submit" class="form_button button submit">SIGN IN</button>
+      </form>
+    </div>
+
+    <div class="switch" id="switch-cnt">
+      <div class="switch_circle"></div>
+      <div class="switch_circle switch_circle-t"></div>
+      <div class="switch_container" id="switch-c1">
+        <h2 class="switch_title title">Welcome Back!</h2>
+      </div>
+
+      <div class="switch_container is-hidden" id="switch-c2">
+        <h2 class="switch_title title">Hello!</h2>
+        <p class="switch_description description">
+          Register an account to become a student or teacher.
+        </p>
+        <button class="switch_button button switch-btn">SIGN UP</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+let switchCtn = document.querySelector("#switch-cnt");
+let switchC1 = document.querySelector("#switch-c1");
+let switchC2 = document.querySelector("#switch-c2");
+let switchCircle = document.querySelectorAll(".switch_circle");
+let switchBtn = document.querySelectorAll(".switch-btn");
+let aContainer = document.querySelector("#a-container");
+let bContainer = document.querySelector("#b-container");
+
+
+let getButtons = (e) => e.preventDefault()
+let changeForm = (e) => {
+    switchCtn.classList.add("is-gx");
+    setTimeout(function () {
+        switchCtn.classList.remove("is-gx");
+    }, 1500)
+    switchCtn.classList.toggle("is-txr");
+    switchCircle[0].classList.toggle("is-txr");
+    switchCircle[1].classList.toggle("is-txr");
+
+    switchC1.classList.toggle("is-hidden");
+    switchC2.classList.toggle("is-hidden");
+    aContainer.classList.toggle("is-txl");
+    bContainer.classList.toggle("is-txl");
+    bContainer.classList.toggle("is-z");
+}
+
+let shell = (e) => {
+    for (var i = 0; i < allButtons.length; i++)
+        allButtons[i].addEventListener("click", getButtons);
+    for (var i = 0; i < switchBtn.length; i++)
+        switchBtn[i].addEventListener("click", changeForm)
+}
+window.addEventListener("load", shell);
+
+</script>
+
+<script src="./js/login.js" type="text/javascript"></script>
+
+</body>
+</html>

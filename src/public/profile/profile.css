@@ -1,0 +1,325 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically */
+    align-items: center;
+    /* Center align elements horizontally */
+    text-align: center;
+}
+
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b39ddb;
+    /* Light purple */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    width: 50px;
+    height: auto;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items li {
+    font-size: 18px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-items a.active {
+    color: #7e57c2;
+}
+
+.nav-items a:hover {
+    color: #9575cd;
+}
+
+.nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9575cd;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+
+.profile-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+    border: 2px solid #b39ddb; /* Light purple border */
+    margin: 20px; /* Add some spacing around the profile section */
+}
+
+.profile-item {
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.update-btn {
+    background: #7e57c2; /* Light purple background */
+    color: #fff;
+    margin-left: 50px;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.update-btn:hover {
+    background: #9575cd; /* Darker purple on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover for effect */
+}
+
+/* Modals */
+.hidden {
+    display: none;
+}
+
+.password-prompt-box,
+.update-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 1000;
+    width: 300px;
+}
+
+.password-prompt-box input,
+.update-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#save-btn {
+    background: #28a745;
+    color: #fff;
+}
+
+#save-btn:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+#cancel-btn,
+#cancel-password-btn {
+    background: #dc3545;
+    color: #fff;
+}
+
+#cancel-btn:hover,
+#cancel-password-btn:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+/* Referral Reward Section */
+.referral-dashboard {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 700px;
+    border: 2px solid #b39ddb; /* Light purple border */
+    margin: 10px auto; /* Center the section with spacing */
+}
+
+.referral-section,
+.referral-table-section,
+.potential-rewards-section {
+    margin-bottom: 30px;
+}
+
+.referral-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.copy-btn {
+    background: #7e57c2; /* Light purple background */
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.copy-btn:hover {
+    background: #9575cd; /* Darker purple on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover for effect */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #7e57c2; /* Light purple background for headers */
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9; /* Light gray background for even rows */
+}
+
+tr:hover {
+    background: #f1f1f1; /* Slightly darker background on hover */
+}
+
+/* Potential Rewards Section */
+
+
+.potential-rewards-section p {
+    font-size: 14px;
+    color: #666; /* Subtle gray for motivational message */
+    margin-bottom: 10px;
+}
+
+/* General Buttons */
+button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05); /* Slight hover effect for all buttons */
+}
+
+.track-orders-btn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #ff4081; /* Pink theme */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.track-orders-btn:hover {
+    background-color: #e03572;
+}
+
+.tracking-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.tracking-modal h2 {
+    margin-bottom: 10px;
+}
+
+.tracking-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tracking-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tracking-form button:hover {
+    background-color: #e03572;
+}
+
+.hidden {
+    display: none;
+}

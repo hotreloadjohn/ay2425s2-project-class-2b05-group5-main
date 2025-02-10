@@ -1,0 +1,284 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id       Int              @id @default(autoincrement())
+  name     String
+  statusId Int
+  status   Status           @relation(fields: [statusId], references: [id])
+  persons  TaskAssignment[]
+}
+
+model Status {
+  id    Int    @id @default(autoincrement())
+  text  String @unique
+  tasks Task[]
+}
+
+model Person {
+  id     Int              @id @default(autoincrement())
+  email  String           @unique
+  name   String
+  avatar String?
+  tasks  TaskAssignment[]
+}
+
+model TaskAssignment {
+  taskId     Int
+  personId   Int
+  assignedAt DateTime @default(now())
+  person     Person   @relation(fields: [personId], references: [id], onDelete: Cascade)
+  task       Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  @@id([taskId, personId], name: "assignmentId")
+}
+
+model Product {
+  id             Int            @id @default(autoincrement())
+  name           String?        @db.VarChar(255)
+  description    String?
+  unitPrice      Decimal        @map("unit_price") @db.Decimal
+  stockQuantity  Decimal        @default(0) @map("stock_quantity") @db.Decimal
+  country        String?        @db.VarChar(100)
+  productType    String?        @map("product_type") @db.VarChar(50)
+  imageUrl       String?        @default("../images/cat.jpg") @map("image_url") @db.VarChar(255)
+  manufacturedOn DateTime?      @map("manufactured_on") @db.Timestamp(6)
+  lastKnownPrice Decimal?        @default(0) @db.Decimal
+  orderItem      OrderItem[]
+  reviews        Review[]
+  SuppProRe      SuppProRe[]
+  cartItem       Cartitem[]
+  stock          ProductStock[]
+  wishlistItem   WishlistItem[]
+
+  @@map("product")
+}
+
+model ProductStock {
+  id          Int      @id @default(autoincrement())
+  productId   Int
+  quantity    Decimal  @default(0) @db.Decimal
+  expiryDate  DateTime @map("expiry_date") @db.Timestamp(6)
+  addedOn     DateTime @default(now()) @map("added_on") @db.Timestamp(6)
+  isAvailable Boolean  @default(true)
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("product_stock")
+}
+
+model Cart {
+  cartId   Int        @id @default(autoincrement()) @map("cart_id")
+  personId Int        @map("person_id")
+  isActive Boolean    @default(true) @map("is_active")
+  user     User       @relation("UserCarts", fields: [personId], references: [id])
+  items    Cartitem[]
+
+  @@map("cart")
+}
+
+model Cartitem {
+  id        Int     @id @default(autoincrement()) @map("cartitem_id")
+  cartId    Int     @map("cart_id")
+  productId Int     @map("product_id")
+  quantity  Int
+  cart      Cart    @relation(fields: [cartId], references: [cartId])
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@map("cart_item")
+}
+
+model Order {
+  id             Int            @id @default(autoincrement())
+  sessionId      String         @unique @map("session_id")
+  personId       Int            @map("person_id")
+  createdAt      DateTime       @default(now()) @map("created_at")
+  orderItems     OrderItem[]
+  refundRequests RefundRequest?
+  delivery       Delivery[]
+  user           User           @relation("UserOrders", fields: [personId], references: [id])
+
+  @@map("order")
+}
+
+model OrderItem {
+  id        Int     @id @default(autoincrement())
+  orderId   Int     @map("order_id")
+  productId Int     @map("product_id")
+  quantity  Int     @default(1)
+  order     Order   @relation(fields: [orderId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model supplier {
+  id              Int           @id @default(autoincrement())
+  personId        Int
+  companyName     String
+  productType     String
+  supplierAdminId Int
+  SuppProRe       SuppProRe[]
+  user            User          @relation("UserSuppliers", fields: [personId], references: [id], onDelete: Cascade)
+  supplierAdmin   supplierAdmin @relation("SupplierAdminSuppliers", fields: [supplierAdminId], references: [id])
+}
+
+model supplierApply {
+  id          Int     @id @default(autoincrement())
+  personId    Int
+  status      String  @default("pending")
+  companyName String
+  productType String
+  Reason      String
+  AdminReason String?
+  user        User    @relation("UserApplications", fields: [personId], references: [id], onDelete: Cascade)
+}
+
+model supplierAdmin {
+  id        Int        @id @default(autoincrement())
+  personId  Int        @unique
+  suppliers supplier[] @relation("SupplierAdminSuppliers")
+  user      User       @relation("UserAdmin", fields: [personId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id                   Int             @id @default(autoincrement())
+  email                String          @unique @db.VarChar(255)
+  password             String          @db.VarChar(255)
+  username             String          @db.VarChar(50)
+  role                 String          @default("user")
+  createdAt            DateTime        @default(now())
+  updatedAt            DateTime        @updatedAt
+  isActive             Boolean         @default(true)
+  carts                Cart[]          @relation("UserCarts")
+  orders               Order[]         @relation("UserOrders")
+  suppliers            supplier[]      @relation("UserSuppliers")
+  supplierAdmins       supplierAdmin?  @relation("UserAdmin")
+  supplierApplications supplierApply[] @relation("UserApplications")
+  wishlists            Wishlist[]      @relation("UserWishlists")
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  username  String   @db.VarChar(50)
+  rating    Int      @default(1)
+  text      String
+  createdAt DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Wishlist {
+  wishlistId Int            @id @default(autoincrement()) @map("wishlist_id")
+  personId   Int            @map("person_id")
+  isActive   Boolean        @default(true) @map("is_active")
+  user       User           @relation("UserWishlists", fields: [personId], references: [id])
+  items      WishlistItem[]
+
+  @@map("wishlist")
+}
+
+model WishlistItem {
+  id             Int      @id @default(autoincrement()) @map("wishlistitem_id")
+  wishlistId     Int      @map("wishlist_id")
+  productId      Int      @map("product_id")
+  lastKnownPrice Decimal  @map("last_known_price") @db.Decimal
+  isNotified     Boolean  @default(false) @map("is_notified")
+  updatedAt      DateTime @updatedAt
+  product        Product  @relation(fields: [productId], references: [id])
+  wishlist       Wishlist @relation(fields: [wishlistId], references: [wishlistId])
+
+  @@map("wishlist_item")
+}
+
+model UserVoucher {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  assignedAt DateTime @default(now())
+  couponId   String
+}
+
+model Coupon {
+  id             String    @id @default(uuid())
+  stripeId       String    @unique
+  name           String?
+  duration       String
+  durationMonths Int?
+  percentOff     Float?
+  amountOff      Int?
+  currency       String?   @default("SGD")
+  createdAt      DateTime  @default(now())
+  redeemBy       DateTime?
+  timesRedeemed  Int       @default(0)
+  valid          Boolean   @default(true)
+
+  @@index([stripeId])
+}
+
+model CollectionPointLocations {
+  id         Int        @id @unique @default(autoincrement())
+  postalCode Int        @map("postal_code")
+  location   String?
+  name       String?
+  delivery   Delivery[]
+
+  @@map("collectionPoint_Locations")
+}
+
+model Delivery {
+  id                Int                       @id @default(autoincrement())
+  orderId           Int                       @map("order_id")
+  name              String?
+  address           String?
+  unit              String?
+  postalCode        String?
+  phoneNumber       String?
+  notes             String?
+  deliveryType      DeliveryType
+  collectionPointId Int?
+  deliveredDate     DateTime?
+  deliveryStartDate DateTime
+  status            String?                   @default("PENDING")
+  deliveryNo        String?
+  collectionPoint   CollectionPointLocations? @relation(fields: [collectionPointId], references: [id])
+  order             Order                     @relation(fields: [orderId], references: [id])
+
+  @@map("delivery")
+}
+
+model RefundRequest {
+  id               Int          @id @default(autoincrement())
+  orderId          Int          @unique
+  issueType        String
+  issueDescription String?
+  proofImages      String?
+  status           RefundStatus @default(PENDING)
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime?
+  reason           String?
+  order            Order        @relation(fields: [orderId], references: [id])
+}
+
+model SuppProRe {
+  supplierId Int
+  productId  Int
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  supplier   supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+
+  @@id([supplierId, productId])
+}
+
+enum DeliveryType {
+  DIRECT
+  COLLECTION
+}
+
+enum RefundStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}

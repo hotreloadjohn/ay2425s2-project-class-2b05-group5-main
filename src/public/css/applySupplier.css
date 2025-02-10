@@ -1,0 +1,227 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f3e5f5; /* Soft purple background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 0; /* Removed offset for fixed navbar */
+    margin-top: 0; /* Ensures no margin is added above the body */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b39ddb;  /* Light purple */
+    display: flex;
+    justify-content: space-between;  /* Space between logo and nav items */
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: fixed; /* Make the navbar fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+/* Ensure that content below the navbar does not overlap */
+body {
+    padding-top: 80px; /* Offset the content below navbar */
+}
+
+.logo {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    width: 50px;  /* Adjust logo size */
+    height: auto;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items li {
+    font-size: 18px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Active page animation */
+.nav-items a.active {
+    color: #7e57c2; /* Highlight color */
+}
+
+.nav-items a:hover {
+    color: #9575cd;  /* Lighter purple on hover */
+}
+
+.nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9575cd; /* Purple underline effect */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+/* Supplier Application Section */
+.supplier-application {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    margin-top: 100px; /* Space below navbar */
+}
+
+/* Keyframe for bounce-in animation */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.supplier-application h2 {
+    font-size: 28px;
+    color: #7e57c2;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+#apply-supplier-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    animation: fadeInUp 1s ease-in-out; /* Fade-in from bottom animation for form */
+}
+
+/* Keyframe for fade-in-up animation */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#apply-supplier-form label {
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+    width: 100%;
+}
+
+#apply-supplier-form input,
+#apply-supplier-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #9575cd;
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+#apply-supplier-form input:focus,
+#apply-supplier-form textarea:focus {
+    border-color: #7e57c2;
+    animation: focusGlow 0.3s ease-out; /* Glow animation on focus */
+}
+
+/* Keyframe for input focus glow */
+@keyframes focusGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(126, 87, 194, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(126, 87, 194, 1);
+    }
+}
+
+#apply-supplier-form textarea {
+    resize: vertical;
+}
+
+#apply-supplier-form button {
+    padding: 12px 30px;
+    background-color: #9575cd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: pulse 1.5s infinite; /* Pulse animation on button */
+}
+
+
+#apply-supplier-form button:hover {
+    background-color: #7e57c2;
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: 40px;  /* Smaller logo size on small screens */
+    }
+
+    .nav-items a {
+        font-size: 16px;
+    }
+}

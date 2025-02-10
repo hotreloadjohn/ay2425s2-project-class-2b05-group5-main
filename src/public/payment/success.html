@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="success.css">
+  <title>Payment Success</title>
+</head>
+
+<body>
+  <!-- Navbar for Logged-in Users -->
+  <nav class="navbar logged-in-navbar" id="logged-in-navbar">
+    <div class="logo">
+      <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+    </div>
+    <ul class="nav-items">
+      <li><a href="../index.html" class="nav-link active" id="product-link">Product</a></li>
+      <li><a href="../review/review.html" class="nav-link" id="product-link">Review</a></li>
+      <li><a href="../cart/cart.html" class="nav-link" id="cart-link">Cart</a></li>
+      <li><a href="../orderHistory/orderHistory.html" class="nav-link" id="orderHistory-link">Order History</a></li>
+      <li><a href="../applySupplier.html" class="nav-link" id="applysupplier-link">Apply Supplier</a></li>
+      <li><a href="../faq/faq.html" class="nav-link" id="profile-link">FAQ</a></li>
+      <li><a href="../profile/profile.html" class="nav-link" id="profile-link">Profile</a></li>
+      <li><a href="../coupons/userViewCoupons.html" class="nav-link" id="viewCoupon-link">View Available Coupons</a></li>
+      <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+    </ul>>
+  </nav>
+  <div class="center-content">
+    <dotlottie-player src="https://lottie.host/9628671c-f28a-465b-920f-139e0cb6fdd4/nv5rRZU3vF.lottie"
+      background="transparent" speed="1" style="width: 400px; height: 400px; align-content: center;" loop autoplay>
+    </dotlottie-player>
+    <h1>Payment Successful!</h1>
+    <p>Thank you for your purchase!</p>
+
+    <button id="delivery-progress-button" onclick="proceedToDelivery()">Please Wait Proceed Delivery Progress</button>
+
+  </div>
+</body>
+
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<!-- <script src="success.js" text="text/javascript"></script> -->
+<script>
+  // Redirect to another page after 5 seconds
+  setTimeout(function () {
+    window.location.href = "/delivery/deliveryChoice.html"; // Replace with the actual URL of the next page
+  }, 5000);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const sessionId = urlParams.get('session_id');
+  localStorage.setItem("session_id", sessionId)
+</script>
+
+</html>

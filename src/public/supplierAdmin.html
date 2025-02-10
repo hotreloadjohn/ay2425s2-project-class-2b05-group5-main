@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Admin Dashboard</title>
+    <link rel="stylesheet" href="./css/supplierAdmin.css">
+    <script src="supplierAdmin.js" type="text/javascript" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navbar for Logged-in Admin -->
+    <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="./supplierAdmin.html" class="nav-link active" id="supplierAdmin-link">Supplier Admin Main Page</a></li>
+            <li><a href="./supplierAdminDashboard.html" class="nav-link" id="supplierAdminDashboard-link">Supplier Admin Dashboard Page</a></li>
+            <li><a href="./adminCheck/admin.html" class="nav-link" id="adminCheck-link">Admin Dashboard</a></li>
+            <li><a href="./coupons/createCoupons.html" class="nav-link" id="createCoupons-link">Create Coupons</a></li>
+            <li><a href="./coupons/getAllCoupons.html" class="nav-link" id="viewAllcoupons-link">View All Coupons</a></li>
+            <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+        </ul>
+        </ul>
+    </nav>
+
+    <!-- Supplier Applications Section -->
+    <section class="search-section">
+        <h2>Supplier Applications</h2>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search for companyName..." />
+            <select class="status-filter">
+                <option value="">All Statuses</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+            </select>
+            <button class="search-btn">Search</button>
+        </div>
+    </section>
+
+    <!-- Applications List -->
+    <section class="applications-section">
+        <div id="applications-container">
+            <!-- Applications will be rendered dynamically -->
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,190 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #fce6d2;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav img {
+    height: 80px;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    margin-left: 20px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: rgb(248, 112, 112);
+    font-size: 18px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+ul li a.active {
+    font-weight: bolder;  
+}
+
+ul li a:hover {
+    text-decoration:underline;
+}
+
+.container {
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fce6d2;
+}
+
+.status-container {
+    display: flex;
+    align-items: center;
+}
+
+.status-dropdown {
+    display: none;
+    margin-right: 10px;
+}
+
+.status-container button {
+    padding: 5px 10px;
+    background-color: #fce6d2;
+    border: none;
+    cursor: pointer;
+}
+
+.status-container button:hover {
+    background-color: #f2c8b1;
+}
+
+.refund-image-thumbnail {
+    max-width: 80px; /* Resize image width */
+    max-height: 80px; /* Resize image height */
+    border-radius: 5px; /* Slight rounding for aesthetics */
+    object-fit: contain; /* Keep image aspect ratio */
+    display: block;
+    margin: auto;
+}
+
+.refund-image a {
+    display: inline-block;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.refund-image a:hover {
+    transform: scale(1.1);
+}
+
+
+/* Container for the update form inside the status cell */
+.status-container {
+    text-align: center;
+}
+
+/* Styling for the update form */
+.update-form {
+    margin-top: 5px;
+}
+
+/* Dropdown styling */
+.update-status-dropdown {
+    padding: 5px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 0.9rem;
+}
+
+/* Textarea styling for reason */
+.update-reason {
+    width: 100%;
+    height: 60px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    resize: vertical;
+}
+
+/* Confirm button styling */
+.confirm-btn {
+    padding: 5px 10px;
+    margin-top: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: #000;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    margin-right: 5px;
+}
+
+/* Cancel button styling */
+.cancel-btn {
+    padding: 5px 10px;
+    margin-top: 5px;
+    border: none;
+    background-color: #f44336;
+    color: #000;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-btn:hover {
+    background-color: #45a049;
+}
+
+.cancel-btn:hover {
+    background-color: #e53935;
+}
+
+/* Styling for refund image thumbnails */
+.refund-image-thumbnail {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+}
+
+.refund-image {
+    margin: 5px;
+}

@@ -1,0 +1,169 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f4f4f4;  /* Light grey background */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b39ddb;  /* Light purple */
+    display: flex;
+    justify-content: space-between;  /* Space between logo and nav items */
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    width: 50px;  /* Adjust logo size */
+    height: auto;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items li {
+    font-size: 18px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Active page animation */
+.nav-items a.active {
+    color: #7e57c2; /* Highlight color */
+}
+
+.nav-items a:hover {
+    color: #9575cd;  /* Lighter purple on hover */
+}
+
+.nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9575cd; /* Purple underline effect */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+/* Product Creation Section */
+.product-creation-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-creation-section h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #5e35b1;  /* Purple title */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+input,
+textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+button.submit-btn {
+    background-color: #9575cd;
+    color: white;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.submit-btn:hover {
+    background-color: #7e57c2;  /* Darker purple on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .product-creation-section {
+        padding: 20px;
+    }
+
+    .product-creation-section h1 {
+        font-size: 24px;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    form {
+        gap: 15px;
+    }
+
+    button.submit-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-items a {
+        font-size: 14px;
+    }
+
+    button.submit-btn {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

@@ -1,0 +1,355 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.center-content {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align elements horizontally */
+    text-align: center;
+  }
+
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b39ddb;  /* Light purple */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    width: 50px;
+    height: auto;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items li {
+    font-size: 18px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-items a.active {
+    color: #7e57c2;
+}
+
+.nav-items a:hover {
+    color: #9575cd;
+}
+
+.nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9575cd;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+.order-group {
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.order-date {
+    font-size: 1.5em;
+    color: #8a4fff; /* Light purple color */
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.product {
+    font-size: 1em;
+    margin: 5px;
+    color: #5a4c98;
+    margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 1.2em;
+    color: #6a4f91;
+    margin-bottom: 8px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+strong {
+    color: #6a4f91;
+}
+
+
+.month-filter {
+    background-color: #f1e0ff;  /* Light purple */
+    border: 1px solid #d4b6e7;  /* Slightly darker purple border */
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    color: #5f2a8b;  /* Dark purple text */
+    cursor: pointer;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.month-filter:hover {
+    background-color: #d8a9f3;  /* Lighter purple on hover */
+}
+
+.month-filter:focus {
+    outline: none;
+    border: 2px solid #5f2a8b;  /* Dark purple border on focus */
+}
+
+.month-filter option {
+    background-color: #f1e0ff;
+}
+
+
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.center-content {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align elements horizontally */
+    text-align: center;
+  }
+
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b39ddb;  /* Light purple */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    width: 50px;
+    height: auto;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items li {
+    font-size: 18px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-items a.active {
+    color: #7e57c2;
+}
+
+.nav-items a:hover {
+    color: #9575cd;
+}
+
+.nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9575cd;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+#orders-container {
+    margin-top: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-group {
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.order-date {
+    font-size: 1.5em;
+    color: #8a4fff; /* Light purple color */
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 15px;
+    border: 1px solid #e0aaff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f6f0f6;
+    max-width: 800px;
+    justify-content: space-between;
+}
+
+.product {
+    font-size: 1em;
+    margin: 5px;
+    color: #5a4c98;
+    margin-bottom: 8px;
+}
+
+.product-image {
+    width: 150px; 
+    height: 150px;
+    object-fit: cover;
+    border-radius: 7px;
+    margin-right: 15px;
+}
+
+
+h3 {
+    font-size: 1.2em;
+    color: #6a4f91;
+    margin-bottom: 8px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+strong {
+    color: #6a4f91;
+}
+
+
+.month-filter {
+    background-color: #f1e0ff;  /* Light purple */
+    border: 1px solid #d4b6e7;  /* Slightly darker purple border */
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    color: #5f2a8b;  /* Dark purple text */
+    cursor: pointer;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.month-filter:hover {
+    background-color: #d8a9f3;  /* Lighter purple on hover */
+}
+
+.month-filter:focus {
+    outline: none;
+    border: 2px solid #5f2a8b;  /* Dark purple border on focus */
+}
+
+.month-filter option {
+    background-color: #f1e0ff;
+}
+
+.product {
+    font-size: 1em;
+    color: #5a4c98;
+    margin-bottom: 8px;
+}
+
+.product-info {
+    flex-grow: 1;
+    max-width: 100%; /* Prevents text overflow */
+}
+
+view-details-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.view-details {
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    background: #bc8cf9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.view-details:hover {
+    background: #9d69ff;
+}

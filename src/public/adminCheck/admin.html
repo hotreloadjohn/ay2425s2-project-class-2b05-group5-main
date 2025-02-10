@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Navbar for Logged-in Admin -->
+    <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: flex;">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="../supplierAdmin.html" class="nav-link" id="supplierAdmin-link">Supplier Admin Main Page</a></li>
+            <li><a href="../supplierAdminDashboard.html" class="nav-link" id="supplierAdminDashboard-link">Supplier Admin Dashboard Page</a></li>
+            <li><a href="../updateSupplierS.html" class="nav-link" id="updateSupplierS-link">Update Supplier Admin</a></li>
+            <li><a href="./admin.html" class="nav-link active" id="adminCheck-link">Admin Dashboard</a></li>
+            <li><a href="../profile/profile.html" class="nav-link" id="profile-link">Profile</a></li>
+            <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <h1>Login and Registration Statistics</h1>
+        <div class="stats">
+            <div class="card" id="total-users">
+                <h3>Total Users</h3>
+                <p>Loading...</p>
+            </div>
+            <div class="card" id="total-admins">
+                <h3>Total Admins</h3>
+                <p>Loading...</p>
+            </div>
+            <div class="card" id="total-suppliers">
+                <h3>Total Suppliers</h3>
+                <p>Loading...</p>
+            </div>
+            <div class="card" id="active-users">
+                <h3>Active Users</h3>
+                <p>Loading...</p>
+            </div>
+            <div class="card" id="active-admins">
+                <h3>Active Admins</h3>
+                <p>Loading...</p>
+            </div>
+            <div class="card" id="active-suppliers">
+                <h3>Active Suppliers</h3>
+                <p>Loading...</p>
+            </div>
+        </div>
+        <div id="error-message" style="color: red; display: none;">Failed to fetch admin statistics.</div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

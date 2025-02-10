@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Supplier Applications</title>
+    <link rel="stylesheet" href="../css/updateSupplierS.css">
+    <script src="updateSupplierS.js" defer></script>
+</head>
+<body>
+     <!-- Navbar for Logged-in Admin -->
+     <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="./supplierAdmin.html" class="nav-link" id="supplierAdmin-link">Supplier Admin Main Page</a></li>
+            <li><a href="./supplierAdminDashboard.html" class="nav-link" id="supplierAdminDashboard-link">Supplier Admin Dashboard Page</a></li>
+            <li><a href="./updateSupplierS.html" class="nav-link active" id="updateSupplierS-link">Update Supplier Admin</a></li>
+            <li><a href="./adminCheck/admin.html" class="nav-link" id="adminCheck-link">Admin Dashboard</a></li>
+            <li><a href="./coupons/createCoupons.html" class="nav-link" id="createCoupons-link">Create Coupons</a></li>
+            <li><a href="./coupons/getAllCoupons.html" class="nav-link" id="viewAllcoupons-link">View All Coupons</a></li>
+            <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- Applications Section -->
+    <section class="applications-display-section">
+        <h2>Update Supplier Application</h2>
+        <div class="application-card">
+            <div class="card-content">
+                <!-- Form starts here -->
+                <form id="update-status-form">
+                    <!-- Hidden Input for suapplyId -->
+                    <input type="hidden" id="suapplyId" name="suapplyId">
+
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select id="status" name="status">
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adminreason">Admin Reason:</label>
+                        <textarea id="adminreason" name="adminreason" placeholder="Enter reason for approval/rejection..." required></textarea>
+                    </div>
+
+                    <button type="submit" id="update-status-btn">Update Status</button>
+                </form>
+                <!-- Form ends here -->
+            </div>
+        </div>
+    </section>
+</body>
+</html>

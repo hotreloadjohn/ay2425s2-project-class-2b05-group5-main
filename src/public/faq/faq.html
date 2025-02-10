@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ</title>
+    <link rel="stylesheet" href="./faq.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <img
+          src="https://cdn-icons-png.freepik.com/512/4362/4362388.png"
+          alt="Logo"
+          class="logo-img"
+        />
+      </div>
+      <ul class="nav-items">
+        <li><a href="../index.html" class="nav-link" id="product-link">Product</a></li>
+        <li><a href="../review/review.html" class="nav-link" id="review-link">Review</a></li>
+        <li><a href="../cart/cart.html" class="nav-link" id="cart-link">Cart</a></li>
+        <li><a href="../wishlist/wishlist.html" class="nav-link" id="wishlists-link">Wishlist</a></li>
+        <li><a href="../orderHistory/orderHistory.html" class="nav-link" id="orderHistory-link">Order History</a></li>
+        <li><a href="../applySupplier.html" class="nav-link" id="applysupplier-link">Apply Supplier</a></li>
+        <li><a href="../faq/faq.html" class="nav-link active" id="faq-link">FAQ</a></li>
+        <li><a href="../coupons/userViewCoupons.html" class="nav-link" id="viewCoupon-link">View Available Coupons</a></li>
+        <li><a href="../profile/profile.html" class="nav-link" id="profile-link">Profile</a></li>
+        <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+    </ul>
+    </nav>
+
+    <!-- FAQ Section -->
+    <main>
+      <section id="faq-section">
+        <h1>Frequently Asked Questions</h1>
+        <div class="faq-search">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Type your question here"
+          />
+          <button id="search-button">Search</button>
+        </div>
+        <div class="faq-tabs">
+          <button class="faq-tab active" data-category="all">All</button>
+          <button class="faq-tab" data-category="returns">Returns</button>
+          <button class="faq-tab" data-category="orders">Orders</button>
+          <button class="faq-tab" data-category="payments">Payments</button>
+          <button class="faq-tab" data-category="shipping">Shipping</button>
+          <button class="faq-tab" data-category="account">Account</button>
+          <button class="faq-tab" data-category="products">Products</button>
+          <button class="faq-tab" data-category="support">Support</button>
+        </div>
+        <div id="faq-container" class="faq-list"></div>
+      </section>
+    </main>
+  </body>
+
+  <script defer src="./faq.js"></script>
+</html>

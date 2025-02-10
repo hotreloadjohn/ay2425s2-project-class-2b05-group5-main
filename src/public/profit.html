@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="profit.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <nav class="navbar public-navbar" id="public-navbar">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="profit.html" class="nav-link active" id="product-link">Dashboard</a></li>
+            <li><a href="login.html" class="nav-link" id="login-link">Login</a></li>
+            <li><a href="register.html" class="nav-link" id="register-link">Register</a></li>
+        </ul>
+    </nav>
+    <div class="container mt-5">
+        <h1 class="text-center">Admin Finance Dashboard</h1>
+
+        <!-- Key Metrics Section -->
+        <div class="row my-4 text-center">
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h5>Total Sales</h5>
+                    <h3 id="total-sales"></h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h5>Total Revenue</h5>
+                    <h3 id="total-revenue"></h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <h5>Total Orders</h5>
+                    <h3 id="total-orders"></h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Orders Section -->
+        <div class="row my-4">
+            <div class="col-md-6">
+                <h4>Recent Orders</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentOrdersTableBody"></tbody>
+                    <div id="changeStatusModal" style="display: none;">
+                        <div class="modal-content">
+                            <h4>Change Order Status</h4>
+                            <label for="statusSelect">Select New Status:</label>
+                            <select id="statusSelect">
+                                <option value="Processing">Processing</option>
+                                <option value="Shipped">Shipped</option>
+                                <option value="Delivered">Delivered</option>
+                                <option value="Canceled">Canceled</option>
+                            </select>
+                            <div>
+                                <button id="saveStatusButton">Save</button>
+                                <button
+                                    onclick="document.getElementById('changeStatusModal').style.display='none'">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- Revenue Line Chart -->
+    <div class="col-md-6">
+        <h4>Revenue Over Time</h4>
+        <canvas id="revenueChart"></canvas>
+    </div>
+
+
+    <!-- Additional Charts Section -->
+    <div class="row my-4">
+        <!-- Sales by Category (Bar Chart) -->
+        <div class="col-md-6">
+            <h4>Sales by Category</h4>
+            <canvas id="salesByCategoryChart"></canvas>
+        </div>
+
+        <!-- Orders by Status (Pie Chart) -->
+        <div class="col-md-6">
+            <h4>Orders by Status</h4>
+            <canvas id="ordersByStatusChart"></canvas>
+        </div>
+    </div>
+
+    <div class="row my-4">
+        <!-- Profit Margin (Doughnut Chart) -->
+        <div class="col-md-6">
+            <h4>Profit Margin</h4>
+            <canvas id="profitMarginChart"></canvas>
+        </div>
+    </div>
+
+
+    <script src="profit.js"></script>
+</body>
+
+</html>

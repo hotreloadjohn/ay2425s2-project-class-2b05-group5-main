@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #fce6d2;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav img {
+    height: 80px;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    margin-left: 20px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: rgb(248, 112, 112);
+    font-size: 18px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+ul li a.active {
+    font-weight: bolder;  
+}
+
+ul li a:hover {
+    text-decoration:underline;
+}
+
+.container {
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #fce6d2;
+}
+
+.status-container {
+    display: flex;
+    align-items: center;
+}
+
+.status-dropdown {
+    display: none;
+    margin-right: 10px;
+}
+
+.status-container button {
+    padding: 5px 10px;
+    background-color: #fce6d2;
+    border: none;
+    cursor: pointer;
+}
+
+.status-container button:hover {
+    background-color: #f2c8b1;
+}
+
+/* Filter container */
+.filter-container {
+    margin-bottom: 15px;
+}
+
+.status-dropdown {
+    width: 100px;
+    padding: 5px;
+}

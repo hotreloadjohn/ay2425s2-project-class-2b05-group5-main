@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Vouchers</title>
+    <link rel="stylesheet" href="./getAllCoupons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./getAllCoupons.js" defer></script>
+</head>
+<body>
+
+<!-- Navbar for Logged-in Admin -->
+<nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+    <div class="logo">
+        <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+    </div>
+    <ul class="nav-items">
+        <li><a href="./supplierAdmin.html" id="supplierAdmin-link">Supplier Admin Main Page</a></li>
+        <li><a href="../supplierAdminDashboard.html" id="supplierAdminDashboard-link">Supplier Admin Dashboard</a></li>
+        <li><a href="../adminCheck/admin.html" id="adminCheck-link">Admin Dashboard</a></li>
+        <li><a href="./createCoupons.html" id="voucherManagement-link">Create Coupons</a></li>
+        <li><a href="./getAllCoupons.html" id="ViewAllVoucher">View All Coupons</a></li>
+        <li><a href="#" id="logout-link">Logout</a></li>
+    </ul>
+</nav>
+
+<h1>Available Coupons</h1>
+
+<section class="coupons-Container" id="couponsContainer">
+    <!-- Vouchers will be loaded here dynamically -->
+</section>
+
+</body>  
+</html>

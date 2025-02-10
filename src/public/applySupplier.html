@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply as Supplier</title>
+    <link rel="stylesheet" href="./css/applySupplier.css">
+    <script src="applySupplier.js" defer></script>
+</head>
+<body>
+    <!-- Navbar for Logged-in Users -->
+    <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="../index.html" class="nav-link" id="product-link">Product</a></li>
+            <li><a href="./review/review.html" class="nav-link" id="review-link">Review</a></li>
+            <li><a href="./cart/cart.html" class="nav-link" id="cart-link">Cart</a></li>
+            <li><a href="./wishlist/wishlist.html" class="nav-link" id="wishlists-link">Wishlist</a></li>
+            <li><a href="./orderHistory/orderHistory.html" class="nav-link" id="orderHistory-link">Order History</a></li>
+            <li><a href="./applySupplier.html" class="nav-link active" id="applysupplier-link">Apply Supplier</a></li>
+            <li><a href="./faq/faq.html" class="nav-link" id="faq-link">FAQ</a></li>
+            <li><a href="../coupons/userViewCoupons.html" class="nav-link" id="viewCoupon-link">View Available Coupons</a></li>
+            <li><a href="./profile/profile.html" class="nav-link" id="profile-link">Profile</a></li>
+            <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Navbar for Public Users -->
+    <nav class="navbar public-navbar" id="public-navbar">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="index.html" class="nav-link active" id="product-link">Product</a></li>
+            <li><a href="./login.html" class="nav-link" id="login-link">Login</a></li>
+            <li><a href="./register.html" class="nav-link" id="register-link">Register</a></li>
+        </ul>
+    </nav>
+
+    <!-- Supplier Application Section -->
+    <section class="supplier-application">
+        <h2>Apply as a Supplier</h2>
+        
+        <!-- Section for displaying existing application -->
+        <div id="existing-application" style="display: none;">
+            <h3>Your Previous Application</h3>
+            <p><strong>Company Name:</strong> <span id="existing-company-name"></span></p>
+            <p><strong>Product Type:</strong> <span id="existing-product-type"></span></p>
+            <p><strong>Reason:</strong> <span id="existing-reason"></span></p>
+            <p><strong>Status:</strong> <span id="existing-status"></span></p>
+            <button id="edit-application-btn" style="display: none;">Edit Application</button>
+        </div>
+
+        <!-- Supplier Application Form -->
+        <form id="apply-supplier-form">
+            <label for="company-name">Company Name:</label>
+            <input type="text" id="company-name" name="companyName" placeholder="Enter your company name" required>
+            
+            <label for="product-type">Product Type:</label>
+            <input type="text" id="product-type" name="productType" placeholder="Enter the product type" required>
+            
+            <label for="reason_id">Reason:</label>
+            <textarea id="reason_id" name="Reason" rows="4" placeholder="Why do you want to apply?" required></textarea>
+            
+            <button type="submit">Submit Application</button>
+        </form>
+    </section>
+</body>
+</html>

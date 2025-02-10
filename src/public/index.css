@@ -1,0 +1,337 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b39ddb;  /* Light purple */
+    display: flex;
+    justify-content: space-between;  /* Space between logo and nav items */
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    width: 50px;  /* Adjust logo size */
+    height: auto;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items li {
+    font-size: 18px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Active page animation */
+.nav-items a.active {
+    color: #7e57c2; /* Highlight color */
+}
+
+.nav-items a:hover {
+    color: #9575cd;  /* Lighter purple on hover */
+}
+
+.nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9575cd; /* Purple underline effect */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+/* Product Display Section */
+.product-display-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    padding: 20px;
+    text-align: center; /* Center text inside the section */
+}
+
+/* Product Search Section */
+.search-section {
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-box {
+    padding: 12px;
+    border-radius: 20px;
+    border: 2px solid #9575cd;
+    font-size: 16px;
+    width: 300px;
+    transition: border-color 0.3s ease;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: #7e57c2;  /* Purple border on focus */
+}
+
+.search-btn {
+    padding: 12px 20px;
+    background-color: #9575cd;  /* Purple background */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #7e57c2;  /* Darker purple on hover */
+}
+
+/* Container for the product cards */
+#product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;  /* Ensure it uses full available width */
+}
+
+/* Each product card */
+.product-card {
+    width: calc(33% - 20px); /* 3 cards per row with gap */
+    background-color: #fff; /* Light background color */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #9b4dff; /* Light border around each card */
+}
+
+/* Hover effect for product card */
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Product image */
+.product-image {
+    width: 90%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Product name */
+.product-card h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Product price */
+.product-price {
+    font-size: 1em;
+    color: #666;
+    margin: 10px 0;
+}
+
+/* Buttons styling */
+button {
+    background-color: #e0bbff;  /* Light purple button */
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for buttons */
+button:hover {
+    background-color: #9b4dff; /* Darker purple on hover */
+    transform: translateY(-3px); /* Button lift effect */
+}
+
+/* View button styles */
+.view-button {
+    background-color: #a1c4ff;  /* Light blue-ish purple */
+}
+
+/* Add to cart button styles */
+.add-to-cart-button {
+    background-color: #f1a7ff;  
+}
+
+/* Add custom media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .product-card {
+        width: calc(50% - 20px); /* 2 cards per row on smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-card {
+        width: 90%;  /* More room for one card on mobile */
+        margin: 0 auto; /* Center the card */
+    }
+}
+
+/* Filter Pop-up Styles */
+.filter-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 20px;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-popup {
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #7e57c2;
+    transition: color 0.3s ease;
+}
+
+.popup-content h3 {
+    text-align: center;
+    color: #7e57c2;
+    margin-bottom: 15px;
+}
+
+.popup-content label {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+    display: block;
+}
+
+.popup-actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.popup-actions .apply-filter {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup-actions .apply-filter:hover {
+    background-color: #9b4dff;
+}
+
+.filter-btn {
+    padding: 12px 20px;
+    background-color: #9575cd;  /* Purple background */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Dim Background when Pop-up is Open */
+body.popup-open {
+    overflow: hidden;
+}
+
+body.popup-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.add-to-wishlist-button {
+    background-color: #ffcc80; 
+    color: #333;
+    border: none;
+    padding: 12px 24px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-to-wishlist-button:hover {
+    background-color: #ffb74d;
+}
+
+.add-to-wishlist-button:disabled {
+    background-color: #bdbdbd; 
+    color: #fff;
+    cursor: not-allowed;
+}

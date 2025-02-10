@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="retrieveById.css">
+</head>
+
+<body>
+    
+    <!-- Navbar for Logged-in Users -->
+    <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="../index.html" class="nav-link active" id="product-link">Product</a></li>
+            <li><a href="../review/review.html" class="nav-link" id="product-link">Review</a></li>
+            <li><a href="../cart/cart.html" class="nav-link" id="cart-link">Cart</a></li>
+            <li><a href="../orderHistory/orderHistory.html" class="nav-link" id="orderHistory-link">Order History</a></li>
+            <li><a href="../applySupplier.html" class="nav-link" id="applysupplier-link">Apply Supplier</a></li>
+            <li><a href="../faq/faq.html" class="nav-link" id="profile-link">FAQ</a></li>
+            <li><a href="../coupons/userViewCoupons.html" class="nav-link" id="viewCoupon-link">View Available Coupons</a></li>
+            <li><a href="../profile/profile.html" class="nav-link" id="profile-link">Profile</a></li>
+            <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Navbar for Public Users -->
+    <nav class="navbar public-navbar" id="public-navbar">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="index.html" class="nav-link active" id="product-link">Product</a></li>
+            <li><a href="./login.html" class="nav-link" id="login-link">Login</a></li>
+            <li><a href="./register.html" class="nav-link" id="register-link">Register</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- This is where the product details will be displayed -->
+        <div id="product-details-container">
+            <!-- Product details will be dynamically injected here by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+
+    <script src="retrieveById.js"></script> <!-- Link to your script that fetches and renders product details -->
+</body>
+
+</html>

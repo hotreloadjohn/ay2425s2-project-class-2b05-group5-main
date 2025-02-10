@@ -1,0 +1,189 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f4f4f4;  /* Light grey background */
+}
+
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b39ddb;  /* Light purple */
+    display: flex;
+    justify-content: space-between;  /* Space between logo and nav items */
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo-img {
+    width: 50px;  /* Adjust logo size */
+    height: auto;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items li {
+    font-size: 18px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Active page animation */
+.nav-items a.active {
+    color: #7e57c2; /* Highlight color */
+}
+
+.nav-items a:hover {
+    color: #9575cd;  /* Lighter purple on hover */
+}
+
+.nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9575cd; /* Purple underline effect */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+/* Main Heading */
+h1 {
+    font-size: 28px;
+    color: #7e57c2;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center; /* Centers the text */
+    display: flex;
+    justify-content: center; /* Centers within flex container */
+}
+
+
+/* Voucher Container */
+.coupons-Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Voucher Card */
+.coupon-card {
+    background-color: white;
+    width: 100%;
+    max-width: 580px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #9b4dff;
+}
+
+.coupon-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Voucher Image */
+.voucher-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.coupon-card h3 {
+    font-size: 1.3em;
+    color: #333;
+    margin: 12px 0;
+}
+
+.coupon-card p {
+    font-size: 1em;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* Buttons Styling */
+button {
+    background-color: #9b4dff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #7e57c2;
+    transform: translateY(-3px);
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 10px;
+    }
+
+    .coupon-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .coupon-card {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .logo-img {
+        width: 40px;
+    }
+
+    .nav-items a {
+        font-size: 14px;
+    }
+}

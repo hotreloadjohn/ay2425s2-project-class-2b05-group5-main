@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="profile.css">
+  <title>Profile</title>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar logged-in-navbar" id="logged-in-navbar">
+    <div class="logo">
+      <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+    </div>
+    <ul class="nav-items">
+      <li><a href="../index.html" class="nav-link" id="product-link">Product</a></li>
+      <li><a href="../review/review.html" class="nav-link" id="review-link">Review</a></li>
+      <li><a href="../cart/cart.html" class="nav-link" id="cart-link">Cart</a></li>
+      <li><a href="../wishlist/wishlist.html" class="nav-link" id="wishlists-link">Wishlist</a></li>
+      <li><a href="../orderHistory/orderHistory.html" class="nav-link" id="orderHistory-link">Order History</a></li>
+      <li><a href="../applySupplier.html" class="nav-link" id="applysupplier-link">Apply Supplier</a></li>
+      <li><a href="../faq/faq.html" class="nav-link" id="faq-link">FAQ</a></li>
+      <li><a href="../profile/profile.html" class="nav-link active" id="profile-link">Profile</a></li>
+      <li><a href="../coupons/userViewCoupons.html" class="nav-link" id="viewCoupon-link">View Available Coupons</a></li>
+      <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Profile Section -->
+  <div class="center-content profile-section">
+    <h1>My Profile</h1>
+    <div class="profile-details">
+      <div class="profile-item">
+        <span>Username:</span>
+        <span id="username">Loading...</span>
+        <button class="update-btn" data-field="username">Update</button>
+      </div>
+      <div class="profile-item">
+        <span>Email:</span>
+        <span id="email">Loading...</span>
+        <button class="update-btn" data-field="email">Update</button>
+      </div>
+      <div class="profile-item">
+        <span>Password:</span>
+        <span id="password">********</span>
+        <button class="update-btn" data-field="password">Update</button>
+      </div>
+    </div>
+
+    <!-- Track Orders Button -->
+    <button id="track-orders-btn" class="track-orders-btn">Track Orders</button>
+  </div>
+
+  <!-- Tracking Input Modal -->
+  <div id="tracking-modal" class="tracking-modal hidden">
+    <div class="tracking-form">
+      <h2>Track Your Order</h2>
+      <input type="text" id="tracking-number" placeholder="Enter tracking number">
+      <button id="track-btn" style="margin-bottom: 10px;">Track</button>
+      <button id="close-tracking-btn">Close</button>
+    </div>
+    <div id="tracking-info" style="margin-top: 10px;"></div>
+  </div>
+
+
+  <!-- Password Prompt for Verification -->
+  <div id="password-prompt-box" class="password-prompt-box hidden">
+    <div class="password-prompt-form">
+      <h2>Verify Your Identity</h2>
+      <input type="password" id="password-input" placeholder="Enter your password">
+      <button id="password-submit-btn">Submit</button>
+      <button id="cancel-password-btn">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Update Box -->
+  <div id="update-box" class="update-box hidden">
+    <div class="update-form">
+      <h2>Update <span id="field-name"></span></h2>
+      <input type="text" id="update-value" placeholder="Enter new value">
+      <div class="buttons">
+        <button id="save-btn">Save</button>
+        <button id="cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- Referral Dashboard Section -->
+  <div class="center-content referral-dashboard" style="margin-left: 50px;">
+    <h1 style="margin-bottom: 30px;">Referral Rewards</h1>
+
+    <!-- Referral Code Section -->
+    <div class="referral-section">
+      <div class="referral-item">
+        <!-- <span>Your Referral Code:</span>
+      <span id="referralCode">Loading...</span> -->
+      </div>
+      <div class="referral-item">
+        <span>Your Referral Link:</span>
+        <input type="text" id="referralLink" value="" readonly style="margin-right: 10px; width: 300px;" />
+        <button class="copy-btn" onclick="copyReferralLink()">Copy Link</button>
+      </div>
+    </div>
+
+    <!-- Referrals Table Section -->
+    <div class="referral-table-section" style="margin-top: 30px;">
+      <h2>Your Referrals</h2>
+      <table style="margin-top: 10px; width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th style="border: 1px solid #ddd; padding: 8px;">Referee Email</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">Status</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">Reward</th>
+          </tr>
+        </thead>
+        <tbody id="referralsTableBody">
+          <tr>
+            <td colspan="3" style="text-align: center;">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Potential Rewards Section -->
+    <div class="potential-rewards-section" style="margin-top: 50px;">
+      <h2>Potential Rewards</h2>
+      <p>Keep earning points to unlock exciting rewards!</p>
+      <table style="margin-top: 10px; width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th style="border: 1px solid #ddd; padding: 8px;">Points Required</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">Reward</th>
+          </tr>
+        </thead>
+        <tbody id="potentialRewardsTableBody">
+          <!-- This will be dynamically populated -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const referralCodeEl = document.getElementById("referralCode");
+      const referralLinkEl = document.getElementById("referralLink");
+      const referralsTableBody = document.getElementById("referralsTableBody");
+      const potentialRewardsTableBody = document.getElementById("potentialRewardsTableBody");
+
+      try {
+        // Fetch referral data
+        const response = await fetch("/api/referral"); // Update API endpoint as needed
+        const data = await response.json();
+
+        // Update referral code and link
+        referralCodeEl.textContent = data.referralCode;
+        referralLinkEl.value = `${window.location.origin}/signup?ref=${data.referralCode}`;
+
+        // Populate referrals table
+        referralsTableBody.innerHTML = data.referrals.length
+          ? data.referrals
+            .map(
+              (ref) =>
+                `<tr>
+                   <td style="border: 1px solid #ddd; padding: 8px;">${ref.refereeEmail}</td>
+                   <td style="border: 1px solid #ddd; padding: 8px;">${ref.status}</td>
+                   <td style="border: 1px solid #ddd; padding: 8px;">${ref.reward || "N/A"}</td>
+                 </tr>`
+            )
+            .join("")
+          : `<tr>
+             <td colspan="3" style="text-align: center;">No referrals yet.</td>
+           </tr>`;
+
+        // Populate potential rewards table
+        const potentialRewards = [
+          { points: 50, reward: "10% Discount Coupon" },
+          { points: 100, reward: "Free Shipping on Next Order" },
+          { points: 200, reward: "$20 Gift Card" },
+          { points: 500, reward: "Exclusive Merchandise" },
+        ];
+
+        potentialRewardsTableBody.innerHTML = potentialRewards
+          .map(
+            (reward) =>
+              `<tr>
+               <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${reward.points}</td>
+               <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${reward.reward}</td>
+             </tr>`
+          )
+          .join("");
+      } catch (error) {
+        console.error("Error fetching referral data:", error);
+        referralCodeEl.textContent = "Error loading referral code.";
+      }
+    });
+
+    function copyReferralLink() {
+      const referralLinkEl = document.getElementById("referralLink");
+      referralLinkEl.select();
+      document.execCommand("copy");
+      alert("Referral link copied!");
+    }
+  </script> -->
+
+
+  <script src="profile.js" type="text/javascript"></script>
+</body>
+
+</html>

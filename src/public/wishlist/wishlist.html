@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="wishlist.css" />
+    <script src="wishlist.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <title>Your Wishlist</title>
+  </head>
+
+  <body>
+    <!-- Navbar for Logged-in Users -->
+    <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none">
+      <div class="logo">
+        <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img"/>
+      </div>
+      <ul class="nav-items">
+        <li><a href="../index.html" class="nav-link" id="product-link">Product</a></li>
+        <li><a href="../review/review.html" class="nav-link" id="review-link">Review</a></li>
+        <li><a href="../cart/cart.html" class="nav-link" id="cart-link">Cart</a></li>
+        <li><a href="./wishlist.html" class="nav-link active" id="wishlists-link">Wishlist</a></li>
+        <li><a href="../orderHistory/orderHistory.html" class="nav-link" id="orderHistory-link">Order History</a></li>
+        <li><a href="../applySupplier.html" class="nav-link" id="applysupplier-link">Apply Supplier</a></li>
+        <li><a href="../faq/faq.html" class="nav-link" id="faq-link">FAQ</a></li>
+        <li><a href="../profile/profile.html" class="nav-link" id="profile-link">Profile</a></li>
+        <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Price Drop Notifications -->
+    <section class="price-drop-notifications">
+      <h2>🔥 Price Drop Alerts! 🔥</h2>
+      <p id="price-drop-description">Don't miss the latest deals tailored for you!</p>
+      <div class="filter-container">
+        <label for="sort-month" id="sort">Sort by Month:</label>
+        <select id="sort-month">
+          <option value="0">January</option>
+          <option value="1">February</option>
+          <option value="2">March</option>
+          <option value="3">April</option>
+          <option value="4">May</option>
+          <option value="5">June</option>
+          <!-- <option value="6">July</option>
+          <option value="7">August</option>
+          <option value="8">September</option>
+          <option value="9">October</option>
+          <option value="10">November</option>
+          <option value="11">December</option> -->
+        </select>
+      </div>
+      <div class="price-drop-list-container">
+        <ul id="price-drop-list" class="price-drop-list"></ul>
+      </div>
+    </section>    
+
+    <!-- Wishlist Section -->
+    <section class="wishlist-container">
+      <h1>Your Wishlist</h1>
+
+      <table class="wishlist-items-table">
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Last Known Price</th>
+            <th>Offers</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="wishlist-items">
+          <!-- Wishlist items dynamically populated -->
+        </tbody>
+      </table>
+
+      <div class="wishlist-summary">
+        <p>
+          <strong>Total Selected Items: </strong>
+          <span id="selected-items-count">0</span>
+        </p>
+        <button id="checkout-btn">Add to Cart</button>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b39ddb;  /* Light purple */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    width: 50px;
+    height: auto;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items li {
+    font-size: 18px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-items a.active {
+    color: #7e57c2;
+}
+
+.nav-items a:hover {
+    color: #9575cd;
+}
+
+.nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9575cd;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+/* Cart Page Styles */
+.cart-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #4a148c;
+    margin-bottom: 20px;
+}
+
+/* Coupon Section Styles */
+.coupon-container {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 50%; /* Keep the width smaller */
+}
+
+.coupon-container label {
+    font-size: 16px; /* Smaller font size */
+    color: #4a148c;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.coupon-container input {
+    width: 100%;
+    padding: 8px; /* Smaller padding */
+    font-size: 14px; /* Smaller font size */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.coupon-container input:focus {
+    border-color: #9575cd;
+    outline: none;
+}
+
+
+
+/* Cart Table Styles */
+.cart-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-items-table th, .cart-items-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-items-table th {
+    background-color: #7e57c2;
+    color: white;
+    font-weight: bold;
+}
+
+.cart-items-table td {
+    background-color: #f9f9f9;
+}
+
+.cart-items-table td button {
+    padding: 6px 12px;
+    background-color: #9575cd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-items-table td button:hover {
+    background-color: #7e57c2;
+}
+
+/* Cart Summary Styles */
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.cart-summary p {
+    font-weight: bold;
+    color: #4a148c;
+}
+
+.cart-summary button {
+    padding: 10px 20px;
+    background-color: #9575cd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-summary button:hover {
+    background-color: #7e57c2;
+}
+
+/* Quantity Buttons Styling */
+.quantity-btns {
+    display: flex;
+    align-items: center;    /* Vertically align the buttons */
+    justify-content: center; /* Horizontally center the buttons */
+    gap: 10px;               /* Space between the buttons */
+}
+
+.quantity-btns button {
+    background-color: #9575cd;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-btns button:hover {
+    background-color: #7e57c2; /* Slightly darker purple on hover */
+}

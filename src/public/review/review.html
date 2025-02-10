@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review for User</title>
+    <link rel="stylesheet" href="review.css" />
+    <script src="review.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+      <!-- Navbar for Logged-in Users -->
+      <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+          <li><a href="../index.html" class="nav-link" id="product-link">Product</a></li>
+          <li><a href="../review/review.html" class="nav-link active" id="review-link">Review</a></li>
+          <li><a href="../cart/cart.html" class="nav-link" id="cart-link">Cart</a></li>
+          <li><a href="../wishlist/wishlist.html" class="nav-link" id="wishlists-link">Wishlist</a></li>
+          <li><a href="../orderHistory/orderHistory.html" class="nav-link" id="orderHistory-link">Order History</a></li>
+          <li><a href="../applySupplier.html" class="nav-link" id="applysupplier-link">Apply Supplier</a></li>
+          <li><a href="../faq/faq.html" class="nav-link" id="faq-link">FAQ</a></li>
+          <li><a href="../coupons/userViewCoupons.html" class="nav-link" id="viewCoupon-link">View Available Coupons</a></li>
+          <li><a href="../profile/profile.html" class="nav-link" id="profile-link">Profile</a></li>
+          <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Review Section -->
+    <main>
+        <section class="create-review">
+          <br>
+          <h2>Create Review</h2>
+          <form id="review-form">
+            <input type="number" id="product-id" placeholder="Product ID" min="1" max="9" required>
+            <input type="number" id="rating" placeholder="Rating (1-5)" min="1" max="5" required>
+            <textarea id="review-text" placeholder="Write your review..." required></textarea>
+            <input type="text" id="username" placeholder="Your Name" required>
+            <button type="submit">Submit</button>
+          </form>
+        </section>
+    
+        <section class="reviews">
+          <h2>All Reviews</h2>
+          <label for="product-filter">Filter by Product ID:</label>
+          <select id="product-filter">
+            <option value="">All</option>
+            <!-- Dynamically populated options -->
+          </select>
+          <div id="reviews-container"></div>
+        </section>
+        
+      </main>
+  </body>
+
+</html>

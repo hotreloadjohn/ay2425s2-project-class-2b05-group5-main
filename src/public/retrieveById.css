@@ -1,0 +1,162 @@
+General reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b39ddb;  /* Light purple */
+    display: flex;
+    justify-content: space-between;  /* Space between logo and nav items */
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    width: 50px;  /* Adjust logo size */
+    height: auto;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items li {
+    font-size: 18px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Active page animation */
+.nav-items a.active {
+    color: #7e57c2; /* Highlight color */
+}
+
+.nav-items a:hover {
+    color: #9575cd;  /* Lighter purple on hover */
+}
+
+.nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9575cd; /* Purple underline effect */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+/* Product Container */
+#product-details-container {
+    max-width: 800px; /* Adjust container width */
+    margin: 40px auto; /* Center the container */
+    padding: 20px;
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center align content */
+}
+
+/* Product Title */
+#product-details-container h1 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #512da8; /* Deep purple for the title */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+#product-details-container img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+#product-details-container img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Product Description and Price */
+#product-details-container p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#product-details-container p strong {
+    color: #7e57c2; /* Highlight text in purple */
+}
+
+/* Add to Cart Button */
+#product-details-container button#add-to-cart {
+    background-color: #7e57c2; /* Deep purple for button */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#product-details-container button#add-to-cart:hover {
+    background-color: #9575cd; /* Lighter purple on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+#product-details-container button#add-to-cart:active {
+    transform: scale(1); /* Reset scale on click */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #product-details-container {
+        padding: 15px;
+    }
+
+    #product-details-container h1 {
+        font-size: 22px;
+    }
+
+    #product-details-container p {
+        font-size: 16px;
+    }
+
+    #product-details-container button#add-to-cart {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}

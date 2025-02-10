@@ -1,0 +1,181 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f4f4f4; /* Light grey background */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b39ddb; /* Light purple */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo-img {
+    width: 50px;
+    height: auto;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items li {
+    font-size: 18px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Active page animation */
+.nav-items a.active {
+    color: #7e57c2; /* Highlight color */
+}
+
+.nav-items a:hover {
+    color: #9575cd; /* Lighter purple on hover */
+}
+
+.nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9575cd; /* Purple underline effect */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+/* Create Voucher Section */
+.create-voucher-section {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-voucher-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #5e35b1; /* Purple title */
+    text-align: center;
+}
+
+.create-voucher-section form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create-voucher-section label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+.create-voucher-section input,
+.create-voucher-section select {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Submit Button */
+.create-voucher-section button {
+    background-color: #9575cd;
+    color: white;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-voucher-section button:hover {
+    background-color: #7e57c2; /* Darker purple on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 10px;
+    }
+
+    .create-voucher-section {
+        width: 90%;
+        padding: 20px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    form input,
+    form select {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: 40px;
+    }
+
+    .nav-items a {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

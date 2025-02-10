@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Progress</title>
+    <script defer src="deliveryProgress.js"></script>
+    <link rel="stylesheet" href="deliveryProgress.css">
+</head>
+<body>
+    <nav>
+        <img src="../images/deliverlogo.png" alt="Logo">
+        <ul>
+            <li><a href="deliveryProgress.html" class="active">Delivery Progress</a></li>
+            <li><a href="refundretrun.html">Refund/Return Progress</a></li>
+            <li><a href="#" id="logout-button">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Delivery Progress</h2>
+
+        <!-- Status Filter Dropdown -->
+        <div class="filter-container">
+            <label for="statusFilter">Filter by Status:</label>
+            <select id="statusFilter">
+                <option value="">All</option>
+            </select>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Order ID</th>
+                    <th>Delivery No</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Unit</th>
+                    <th>Postal Code</th>
+                    <th>Phone Number</th>
+                    <th>Notes</th>
+                    <th>Start Date</th>
+                    <th>Delivered Date</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Update Status</th>
+                </tr>
+            </thead>
+            <tbody id="deliveryTableBody">
+                <!-- Data will be inserted dynamically -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

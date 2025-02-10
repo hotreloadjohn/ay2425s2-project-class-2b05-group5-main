@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Application Page</title>
+    <link rel="stylesheet" href="../css/applySupplier.css">
+    <script src="applySupplier.js" type="text/javascript" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 10px 20px;
+        }
+
+        .navbar .nav-link {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .navbar .nav-link.active {
+            font-weight: bold;
+        }
+
+        /* Card styles */
+        .application-section {
+            max-width: 400px; /* Set a maximum width for the card */
+            margin: 20px auto; /* Center the card */
+            background-color: white; /* Card background */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            padding: 20px; /* Inner padding */
+        }
+
+        .application-section h2 {
+            font-size: 1.5em; /* Smaller heading size */
+            margin-bottom: 15px; /* Space below heading */
+        }
+
+        .application-section input,
+        .application-section textarea {
+            width: calc(100% - 20px); /* Full width minus padding */
+            padding: 10px; /* Inner padding */
+            margin-bottom: 10px; /* Space between inputs */
+            border-radius: 4px; /* Rounded corners for inputs */
+            border: 1px solid #ccc; /* Border color */
+        }
+
+        .application-section button {
+            width: 100%; /* Full width button */
+            padding: 10px; /* Inner padding */
+            background-color: #28a745; /* Button color */
+            color: white; /* Text color */
+            border: none; /* No border */
+            border-radius: 4px; /* Rounded corners for button */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        .application-section button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        
+        #applicationsContainer {
+            margin-top: 20px; /* Space above applications section */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar for Logged-in Users -->
+    <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="#" class="nav-link active">Apply for Supplier</a></li>
+            <li><a href="#" class="nav-link" id="my-applications-link">My Applications</a></li>
+            <li><a href="#" class="nav-link" id="profile-link">Profile</a></li>
+        </ul>
+    </nav>
+
+    <!-- Supplier Application Section -->
+    <section class="application-section">
+        <h2>Apply for Supplier</h2>
+        <form id="supplierApplicationForm">
+            <input type="text" id="companyName" placeholder="Company Name" required />
+            <input type="text" id="productType" placeholder="Product Type" required />
+            <textarea id="reason" placeholder="Reason for Application" required></textarea>
+            <button type="submit">Submit Application</button>
+        </form>
+
+        <h2>My Applications</h2>
+        <div id="applicationsContainer"></div>
+    </section>
+
+</body>
+</html>

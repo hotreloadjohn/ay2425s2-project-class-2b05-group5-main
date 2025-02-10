@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/supplierAdminDashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+    <script src="./supplierAdminDashboard.js"></script>
+</head>
+<body>
+
+    <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="./supplierAdmin.html" class="nav-link" id="supplierAdmin-link">Supplier Admin Main Page</a></li>
+            <li><a href="./supplierAdminDashboard.html" class="nav-link active" id="supplierAdminDashboard-link">Supplier Admin Dashboard Page</a></li>
+            <li><a href="./adminCheck/admin.html" class="nav-link" id="adminCheck-link">Admin Dashboard</a></li>
+            <li><a href="./coupons/createCoupons.html" class="nav-link" id="createCoupons-link">Create Coupons</a></li>
+            <li><a href="./coupons/getAllCoupons.html" class="nav-link" id="viewAllcoupons-link">View All Coupons</a></li>
+            <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <!-- Statistics Cards -->
+        <div class="statistics-card">
+            <div>
+                <h4>Total Applications</h4>
+                <p id="total-applications">Loading...</p>
+            </div>
+            <div>
+                <h4>Approved Applications</h4>
+                <p id="approved-applications">Loading...</p>
+            </div>
+            <div>
+                <h4>Rejected Applications</h4>
+                <p id="rejected-applications">Loading...</p>
+            </div>
+        </div>
+
+        <!-- Bar Chart for Top Companies -->
+        <div class="charts-card">
+            <div id="bar-chart" style="width: 900px; height: 600px;"></div> <!-- Increased chart size -->
+        </div>
+
+        <!-- Top Companies List -->
+        <div class="top-companies">
+            <h4>Top Companies</h4>
+            <div id="top-company-card" class="top-company-card">
+                <p id="top-company-name">Loading...</p> <!-- Top company with animation -->
+            </div>
+            <ul id="top-companies">
+                <li id="companies-placeholder">Loading top companies...</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

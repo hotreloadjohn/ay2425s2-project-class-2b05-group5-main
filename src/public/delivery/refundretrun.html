@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Progress</title>
+    <script defer src="retrunrefund.js"></script>
+    <link rel="stylesheet" href="retrunrefund.css">
+</head>
+<body>
+    <nav>
+        <img src="../images/deliverlogo.png" alt="Logo">
+        <ul>
+            <li><a href="deliveryProgress.html" >Delivery Progress</a></li>
+            <li><a href="refundretrun.html" class="active">Refund/Return Progress</a></li>
+            <li><a href="#" id="logout-button">Logout</a></li>
+        </ul>
+    </nav>  
+    <div class="container">
+        <h2>Return & Refund Progress</h2>
+        <label for="filterDropdown">Filter by Status:</label>
+    <select id="filterDropdown" onchange="applyFilter()">
+        <option value="All">All</option>
+        <option value="Pending">Pending</option>
+        <option value="Approved">Approved</option>
+        <option value="Rejected">Rejected</option>
+    </select> 
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Order ID</th>
+                    <th>Delivery No</th>
+                    <th>Issue Type</th>
+                    <th>Issue Description</th>
+                    <th>Proof Images</th>
+                    <th>Issue Date</th>
+                    <th>Status</th>
+                    <th>Updated Date</th>
+                    <th>Reason</th>
+                    <th>Update Status</th>
+                </tr>
+            </thead>
+            <tbody id="returnTableBody">
+                <!-- Data will be inserted here dynamically -->
+            </tbody>
+        </table>   
+    </div>
+</body>
+</html>

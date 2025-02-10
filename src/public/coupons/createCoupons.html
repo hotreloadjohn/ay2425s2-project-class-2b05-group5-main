@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Coupons</title>
+    <link rel="stylesheet" href="createCoupons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="createCoupons.js" defer></script>
+</head>
+<body>
+    <!-- Navbar for Logged-in User -->
+    <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="./supplierAdmin.html">Supplier Admin Main Page</a></li>
+            <li><a href="../supplierAdminDashboard.html">Supplier Admin Dashboard</a></li>
+            <li><a href="../adminCheck/admin.html">Admin Dashboard</a></li>
+            <li><a href="./createCoupons.html" class="active">Create Coupons</a></li>
+            <li><a href="./getAllCoupons.html">View All Coupons</a></li>
+            <li><a href="#" id="logout-link">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Create Coupon Section -->
+    <section class="create-voucher-section">
+        <h2>Create a New Coupon</h2>
+        <form id="createVoucherForm">
+            <label for="name">Coupon Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="discount">Discount Amount:</label>
+            <input type="number" id="discount" name="discount" required><br>
+
+            <label for="discountType">Discount Type:</label>
+            <select id="discountType" name="discountType" required>
+                <option value="percentage">Percentage</option>
+                <option value="fixed">Fixed Amount</option>
+            </select><br>
+
+            <label for="duration">Duration:</label>
+            <select id="duration" name="duration" required>
+                <option value="once">Once</option>
+                <option value="forever">Forever</option>
+                <option value="repeating">Repeating</option>
+            </select><br>
+
+            <label for="durationInMonths" id="durationMonthsLabel" style="display: none;">Duration in Months:</label>
+            <input type="number" id="durationInMonths" name="durationInMonths" style="display: none;"><br>
+
+            <button type="submit">Create Coupon</button>
+        </form>
+    </section>
+</body>
+</html>

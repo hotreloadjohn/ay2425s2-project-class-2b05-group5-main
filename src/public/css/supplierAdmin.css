@@ -1,0 +1,263 @@
+/* styles.css */
+
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #b39ddb;  /* Light purple */
+    display: flex;
+    justify-content: space-between;  /* Space between logo and nav items */
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.logo-img {
+    width: 50px;  /* Adjust logo size */
+    height: auto;
+}
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items li {
+    font-size: 18px;
+}
+
+.nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Active page animation */
+.nav-items a.active {
+    color: #7e57c2; /* Highlight color */
+}
+
+.nav-items a:hover {
+    color: #9575cd;  /* Lighter purple on hover */
+}
+
+.nav-items a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9575cd; /* Purple underline effect */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-items a:hover::before {
+    transform: scaleX(1);
+}
+
+/* Product Search Section */
+.search-section {
+    padding: 50px 20px;
+    background-color: #ffffff;  /* White background for section */
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.search-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #5e35b1; /* Purple title */
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-box {
+    padding: 12px;
+    border-radius: 20px;
+    border: 2px solid #9575cd;
+    width: 250px; /* Fixed width for consistency */
+}
+
+.search-btn {
+    padding: 12px 20px;
+    background-color: #9575cd; 
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: #7e57c2;  /* Darker shade for hover effect */
+}
+
+/* Applications Display Section */
+.applications-display-section {
+    padding: 20px;
+}
+
+.applications-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Each application card */
+.application-card {
+    background-color: #fff; /* Light background color */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 25px;  /* Increased padding for larger content */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 75vw; /* 75% of the viewport width */
+    margin: 20px auto; /* Centered with spacing */
+    opacity: 0; /* Start with hidden opacity for animation */
+    animation: fadeIn 0.6s ease-out forwards; /* Animation added for fade-in */
+}
+
+/* Card background color based on status */
+.status-approve-card {
+    background-color: #fff598;  /* Yellow for approved */
+}
+
+.status-reject-card {
+    background-color: #ffb7b1;  /* Light red for rejected */
+}
+
+.status-pending-card {
+    background-color: #afd6f6;  /* Light blue for pending */
+}
+
+/* Card hover effect */
+.application-card:hover {
+    transform: scale(1.05);  /* Slight zoom effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);  /* Enhanced shadow on hover */
+}
+
+/* Animation for fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start with a slight downward movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+/* Button styles */
+button {
+    background-color: #e0bbff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+   background-color: #9b4dff;
+}
+
+/* Supplier Graph Section */
+.graph-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.graph-section canvas {
+    width: 400px !important;  /* Set width for the graph */
+    height: 400px !important; /* Set height for the graph */
+    max-width: 100%; /* Ensure the graph scales correctly on smaller screens */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 10px;
+    }
+
+    .search-container {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: 400px; /* Maximum width for search box */
+    }
+
+    .application-card {
+        padding: 20px;
+        width: 90vw; /* 90% width on smaller screens */
+    }
+
+    .search-btn {
+        width: 100%;
+        max-width: 150px;  /* Make button width responsive */
+    }
+
+    .graph-section canvas {
+        width: 150px !important; /* Smaller graph on smaller screens */
+        height: 150px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: 40px;  /* Smaller logo size on small screens */
+    }
+
+    .nav-items a {
+        font-size: 16px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
+
+    .graph-section canvas {
+        width: 180px !important; /* Even smaller graph for mobile screens */
+        height: 180px !important;
+    }
+}

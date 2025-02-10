@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Supplier</title>
+    <link rel="stylesheet" href="../css/createSupplier.css">
+    <script src="./createSupplier.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar logged-in-navbar" id="logged-in-navbar" style="display: none;">
+        <div class="logo">
+            <img src="https://cdn-icons-png.freepik.com/512/4362/4362388.png" alt="Logo" class="logo-img" />
+        </div>
+        <ul class="nav-items">
+            <li><a href="./supplierAdmin.html" class="nav-link active" id="supplierAdmin-link">Supplier Admin Main page</a></li>
+            <li><a href="./supplierAdminDashboard.html" class="nav-link" id="supplierAdminDashboard-link">Supplier Admin Dashboard page</a></li>
+            <li><a href="./voucher/createVoucher.html" class="nav-link" id="voucherManagement-link">Voucher Management</a></li>
+            <li><a href="./voucher/ViewAllVoucher.html" class="nav-link" id="ViewAllVoucher">View All Voucher</a></li>
+            <li><a href="#" class="nav-link" id="logout-link">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Create Supplier Section -->
+    <section class="form-section">
+        <div class="form-card">
+            <h2>Create New Supplier</h2>
+            <form id="create-supplier-form" class="supplier-form">
+                <div class="form-group">
+                    <label for="personId">Person ID:</label>
+                    <input type="text" id="personId" name="personId" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="companyName">Company Name:</label>
+                    <input type="text" id="companyName" name="companyName">
+                </div>
+
+                <div class="form-group">
+                    <label for="productType">Product Type:</label>
+                    <input type="text" id="productType" name="productType">
+                </div>
+
+                <div class="form-group">
+                    <label for="supplierAdminId">Supplier Admin ID:</label>
+                    <input type="text" id="supplierAdminId" name="supplierAdminId">
+                </div>
+
+                <button type="submit" class="submit-btn">Create Supplier</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
