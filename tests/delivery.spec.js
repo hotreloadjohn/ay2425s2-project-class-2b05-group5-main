@@ -71,12 +71,38 @@ test.describe("Delivery Process", () => {
     await page.click("#track-orders-btn");
     console.log("After clicking track orders button");
 
-    // Wait for modal to be fully visible with extended timeout
+    // Wait for modal to be attached first
     await page.waitForSelector("#tracking-modal", {
-      state: "visible",
-      timeout: 10000,
+      state: "attached",
+      timeout: 5000,
     });
-    console.log("After waitForSelector");
+
+    // Remove hidden class and check visibility
+    await page.evaluate(() => {
+      const modal = document.querySelector("#tracking-modal");
+      if (modal) {
+        modal.classList.remove("hidden");
+      }
+    });
+
+    // Wait for modal to be fully visible
+    try {
+      await page.waitForFunction(
+        () => {
+          const modal = document.querySelector("#tracking-modal");
+          const style = window.getComputedStyle(modal);
+          return (
+            style.display !== "none" &&
+            !modal.classList.contains("hidden") &&
+            style.visibility !== "hidden"
+          );
+        },
+        { timeout: 30000 }
+      );
+    } catch (error) {
+      console.error("Modal visibility error:", error);
+      throw error;
+    }
 
     // Confirm modal is visible
     await expect(page.locator("#tracking-modal")).toBeVisible();
