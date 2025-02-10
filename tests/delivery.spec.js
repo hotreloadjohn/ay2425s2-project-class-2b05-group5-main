@@ -57,31 +57,28 @@ test.describe("Delivery Process", () => {
       (el) => el.checked
     );
     expect(isPickupChecked).toBeFalsy();
+
+    await browser.close();
   });
 
   test("Check the orders by tracking number", async ({ page }) => {
-    console.log("Check the orders by tracking number1");
-
     // Navigate to profile page
     await page.goto(`${baseUrl}/profile/profile.html`);
-    console.log("Check the orders by tracking number2");
 
     // Click the Track Orders button
     // Wait for the button to be visible
-    await page.waitForSelector("#track-orders-btn", { state: "visible" });
-    console.log("Check the orders by tracking number3");
-    await page.click("#track-orders-btn");
-    console.log("Check the orders by tracking number4");
+    console.log("Before clicking track orders button");
 
-    // // Wait for modal to be fully visible
-    // await page.waitForFunction(() => {
-    //   const modal = document.querySelector("#tracking-modal");
-    //   if (!modal) return false;
-    //   const style = window.getComputedStyle(modal);
-    //   return style.display === "block" && style.visibility !== "hidden";
-    // });
+    await page.waitForSelector("#track-orders-btn", { state: "visible" });
+    await page.click("#track-orders-btn");
+    console.log("After clicking track orders button");
+
     // Wait for modal to be fully visible with extended timeout
-    await page.waitForSelector("#tracking-modal", { state: "visible" });
+    await page.waitForSelector("#tracking-modal", {
+      state: "visible",
+      timeout: 10000,
+    });
+    console.log("After waitForSelector");
 
     // Confirm modal is visible
     await expect(page.locator("#tracking-modal")).toBeVisible();
