@@ -81,28 +81,7 @@ test.describe("Delivery Process", () => {
     //   return style.display === "block" && style.visibility !== "hidden";
     // });
     // Wait for modal to be fully visible with extended timeout
-    try {
-      console.log("Waiting for tracking modal to appear...");
-      await page.waitForFunction(
-        () => {
-          const modal = document.querySelector("#tracking-modal");
-          if (!modal) {
-            console.log("Modal element not found");
-            return false;
-          }
-          const style = window.getComputedStyle(modal);
-          const isVisible =
-            style.display === "block" && style.visibility !== "hidden";
-          console.log(`Modal found, visibility status: ${isVisible}`);
-          return isVisible;
-        },
-        { timeout: 60000 } // Extended timeout to 60 seconds
-      );
-      console.log("Modal is now visible");
-    } catch (error) {
-      console.error("Failed to find modal:", error);
-      throw error;
-    }
+    await page.waitForSelector("#tracking-modal", { state: "visible" });
 
     // Confirm modal is visible
     await expect(page.locator("#tracking-modal")).toBeVisible();
