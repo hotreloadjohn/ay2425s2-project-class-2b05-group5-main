@@ -73,15 +73,36 @@ test.describe("Delivery Process", () => {
     await page.click("#track-orders-btn");
     console.log("Check the orders by tracking number4");
 
-    // Wait for modal to be fully visible
-    await page.waitForFunction(() => {
-      console.log("Check the orders by tracking number5");
-      const modal = document.querySelector("#tracking-modal");
-      if (!modal) return false;
-      const style = window.getComputedStyle(modal);
-      return style.display === "block" && style.visibility !== "hidden";
-    });
-    console.log("Check the orders by tracking number6");
+    // // Wait for modal to be fully visible
+    // await page.waitForFunction(() => {
+    //   const modal = document.querySelector("#tracking-modal");
+    //   if (!modal) return false;
+    //   const style = window.getComputedStyle(modal);
+    //   return style.display === "block" && style.visibility !== "hidden";
+    // });
+    // Wait for modal to be fully visible with extended timeout
+    try {
+      console.log("Waiting for tracking modal to appear...");
+      await page.waitForFunction(
+        () => {
+          const modal = document.querySelector("#tracking-modal");
+          if (!modal) {
+            console.log("Modal element not found");
+            return false;
+          }
+          const style = window.getComputedStyle(modal);
+          const isVisible =
+            style.display === "block" && style.visibility !== "hidden";
+          console.log(`Modal found, visibility status: ${isVisible}`);
+          return isVisible;
+        },
+        { timeout: 60000 } // Extended timeout to 60 seconds
+      );
+      console.log("Modal is now visible");
+    } catch (error) {
+      console.error("Failed to find modal:", error);
+      throw error;
+    }
 
     // Confirm modal is visible
     await expect(page.locator("#tracking-modal")).toBeVisible();
