@@ -57,8 +57,6 @@ test.describe("Delivery Process", () => {
       (el) => el.checked
     );
     expect(isPickupChecked).toBeFalsy();
-
-    await browser.close();
   });
 
   test("Check the orders by tracking number", async ({ page }) => {
