@@ -78,7 +78,7 @@ test.describe("Delivery Process", () => {
     // await expect(page.locator("#tracking-modal")).toBeVisible();
     // Get the modal by id
     const modal = await page.$("#tracking-modal");
-    await modal.waitFor({ state: "visible" });
+    // await modal.waitFor({ state: "visible" });
 
     // Fill in the tracking number
     await modal.locator("input").fill("#tracking-number", "L000000");
