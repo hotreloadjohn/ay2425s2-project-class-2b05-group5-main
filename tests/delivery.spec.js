@@ -65,11 +65,8 @@ test.describe("Delivery Process", () => {
 
     // Click the Track Orders button
     // Wait for the button to be visible
-    console.log("Before clicking track orders button");
-
     await page.waitForSelector("#track-orders-btn", { state: "visible" });
     await page.click("#track-orders-btn");
-    console.log("After clicking track orders button");
     await page.waitForTimeout(2000);
     // Confirm modal is visible
     // Debugging: Force the modal to show
