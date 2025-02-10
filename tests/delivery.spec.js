@@ -60,21 +60,28 @@ test.describe("Delivery Process", () => {
   });
 
   test("Check the orders by tracking number", async ({ page }) => {
+    console.log("Check the orders by tracking number1");
+
     // Navigate to profile page
     await page.goto(`${baseUrl}/profile/profile.html`);
+    console.log("Check the orders by tracking number2");
 
     // Click the Track Orders button
     // Wait for the button to be visible
     await page.waitForSelector("#track-orders-btn", { state: "visible" });
+    console.log("Check the orders by tracking number3");
     await page.click("#track-orders-btn");
+    console.log("Check the orders by tracking number4");
 
     // Wait for modal to be fully visible
     await page.waitForFunction(() => {
+      console.log("Check the orders by tracking number5");
       const modal = document.querySelector("#tracking-modal");
       if (!modal) return false;
       const style = window.getComputedStyle(modal);
       return style.display === "block" && style.visibility !== "hidden";
     });
+    console.log("Check the orders by tracking number6");
 
     // Confirm modal is visible
     await expect(page.locator("#tracking-modal")).toBeVisible();
